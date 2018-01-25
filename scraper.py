@@ -16,7 +16,7 @@ links = root.cssselect("td.titleColumn a")
 linkslist = []
 for link in links:
   print link
-  print link.text
+  #print link.text
   print link.text_content()
   cleanurl = link.attrib['href'].split("?")[0]
   print cleanurl
