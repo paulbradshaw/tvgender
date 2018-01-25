@@ -15,6 +15,7 @@ for link in links:
   print link
   print link.text
   print link.text_content()
+  print link.attrib['href']
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
