@@ -3,20 +3,28 @@
 
 import scraperwiki
 import lxml.html
-#
+
+baseurl = "http://www.imdb.com/"
 # # Read in a page
 html = scraperwiki.scrape("http://www.imdb.com/chart/toptv/?ref_=nv_tvv_250_3")
+
 #
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 ##main > div > span > div > div > div.lister > table > tbody > tr:nth-child(1) > td.titleColumn > a
 links = root.cssselect("td.titleColumn a")
+linkslist = []
 for link in links:
   print link
   print link.text
   print link.text_content()
   print link.attrib['href']
-#
+  fullurl = baseurl+link.attrib['href']
+  linkslist.append(fullurl)
+
+for url in linkslist:
+  print url
+  
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
 #
