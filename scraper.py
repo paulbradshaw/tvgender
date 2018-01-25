@@ -13,7 +13,8 @@ root = lxml.html.fromstring(html)
 links = root.cssselect("td.titleColumn a")
 for link in links:
   print link
-  print link.text()
+  print link.text
+  print link.text_content()
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
