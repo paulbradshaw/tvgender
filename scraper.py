@@ -19,7 +19,7 @@ for link in links:
   print link.text
   print link.text_content()
   print link.attrib['href']
-  fullurl = baseurl+link.attrib['href']
+  fullurl = baseurl+link.attrib['href'].split("?")[0]
   linkslist.append(fullurl)
 
 for url in linkslist:
